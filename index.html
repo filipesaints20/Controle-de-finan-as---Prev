@@ -3,39 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinancePro | Gestão de Casamento</title>
+    <title>FinancePro | Gestão Inteligente</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <nav class="nav">
         <div class="nav-header">
-            <span class="material-icons-outlined">favorite</span>
-            <span>Wedding Planner</span>
+            <span class="material-icons-outlined">analytics</span>
+            <span>FinancePro</span>
         </div>
+        
         <div class="nav-item active" onclick="Route('dash', this)">
             <span class="material-icons-outlined">dashboard</span>
-            <span>Resumo</span>
+            <span>Dashboard</span>
         </div>
+        
         <div class="nav-item" onclick="Route('pay', this)">
-            <span class="material-icons-outlined">shopping_bag</span>
-            <span>Contas</span>
+            <span class="material-icons-outlined">account_balance_wallet</span>
+            <span>Contas a Pagar</span>
         </div>
+        
         <div class="nav-item" onclick="Route('hist', this)">
-            <span class="material-icons-outlined">receipt_long</span>
-            <span>Extrato</span>
+            <span class="material-icons-outlined">history_edu</span>
+            <span>Histórico</span>
         </div>
     </nav>
 
     <main class="content">
+        
         <section id="dash" class="page">
             <header>
-                <h1>Dashboard Financeiro</h1>
-                <p>Controle de gastos para o grande dia.</p>
+                <h1>Resumo Financeiro</h1>
+                <p>Acompanhamento de metas e pagamentos efetivados.</p>
             </header>
             
             <div class="grid">
@@ -44,7 +50,7 @@
                     <div class="val" id="bruto">R$ 0,00</div>
                 </div>
                 <div class="card">
-                    <span class="card-label" style="color: var(--success)">Total Pago</span>
+                    <span class="card-label" style="color: var(--success)">Efetivado</span>
                     <div class="val" id="pago" style="color: var(--success)">R$ 0,00</div>
                 </div>
                 <div class="card">
@@ -53,48 +59,60 @@
                 </div>
             </div>
 
-            <div class="card" style="max-width: 500px; margin: 0 auto;">
-                <canvas id="chart"></canvas>
+            <div class="charts-wrapper">
+                <div class="chart-container">
+                    <p class="card-label" style="margin-bottom: 20px;">Visão Geral (Status)</p>
+                    <canvas id="chartDoughnut"></canvas>
+                </div>
+                <div class="chart-container">
+                    <p class="card-label" style="margin-bottom: 20px;">Distribuição por Mês</p>
+                    <canvas id="chartBars"></canvas>
+                </div>
             </div>
         </section>
 
         <section id="pay" class="page" style="display:none">
             <header>
-                <h1>Contas a Pagar</h1>
+                <h1>Contas em Aberto</h1>
+                <p>Selecione um item para registrar o pagamento.</p>
             </header>
             <div class="card">
                 <table>
                     <thead>
                         <tr>
-                            <th>ITEM</th>
-                            <th>TOTAL</th>
-                            <th>PENDENTE</th>
+                            <th>DESCRIÇÃO / CATEGORIA</th>
+                            <th>VENCIMENTO</th>
+                            <th>SALDO DEVEDOR</th>
                             <th>AÇÃO</th>
                         </tr>
                     </thead>
-                    <tbody id="lista-pagar"></tbody>
+                    <tbody id="lista-pagar">
+                        </tbody>
                 </table>
             </div>
         </section>
 
         <section id="hist" class="page" style="display:none">
             <header>
-                <h1>Histórico de Efetivados</h1>
+                <h1>Extrato de Movimentações</h1>
+                <p>Histórico de todos os pagamentos realizados até agora.</p>
             </header>
             <div class="card">
                 <table>
                     <thead>
                         <tr>
-                            <th>MÊS</th>
-                            <th>ITEM</th>
+                            <th>MÊS REFERÊNCIA</th>
+                            <th>DESCRIÇÃO DO ITEM</th>
                             <th>VALOR PAGO</th>
                             <th>STATUS</th>
                         </tr>
                     </thead>
-                    <tbody id="lista-historico"></tbody>
+                    <tbody id="lista-historico">
+                        </tbody>
                 </table>
             </div>
         </section>
+
     </main>
 
     <script src="js/script.js"></script>

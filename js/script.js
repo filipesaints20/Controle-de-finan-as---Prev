@@ -1,4 +1,4 @@
-const API = "https://script.google.com/macros/s/AKfycbyZx3ejW-ndTZ28TnZcfI2YgrS7_WLK5F2aiiJycELiQBUlt3d8BUJgpVSaltWJhEhJ/exec";
+const API = "https://script.google.com/macros/s/AKfycby-hXfLCduk1U6yZ5mh8EVbLE16onstPnorCGmLOtet43GHcDw_msWlWgo-8vRHRxWY/exec";
 
 const App = {
     data: { despesas: [] },

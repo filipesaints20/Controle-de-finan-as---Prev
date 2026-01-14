@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinancePro | Gestão de Casamento</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-header">
+            <span class="material-icons-outlined">favorite</span>
+            <span>Wedding Planner</span>
+        </div>
+        <div class="nav-item active" onclick="Route('dash', this)">
+            <span class="material-icons-outlined">dashboard</span>
+            <span>Resumo</span>
+        </div>
+        <div class="nav-item" onclick="Route('pay', this)">
+            <span class="material-icons-outlined">shopping_bag</span>
+            <span>Contas</span>
+        </div>
+        <div class="nav-item" onclick="Route('hist', this)">
+            <span class="material-icons-outlined">receipt_long</span>
+            <span>Extrato</span>
+        </div>
+    </nav>
+
+    <main class="content">
+        <section id="dash" class="page">
+            <header>
+                <h1>Dashboard Financeiro</h1>
+                <p>Controle de gastos para o grande dia.</p>
+            </header>
+            
+            <div class="grid">
+                <div class="card">
+                    <span class="card-label">Orçamento Total</span>
+                    <div class="val" id="bruto">R$ 0,00</div>
+                </div>
+                <div class="card">
+                    <span class="card-label" style="color: var(--success)">Total Pago</span>
+                    <div class="val" id="pago" style="color: var(--success)">R$ 0,00</div>
+                </div>
+                <div class="card">
+                    <span class="card-label" style="color: var(--danger)">Pendente</span>
+                    <div class="val" id="pend" style="color: var(--danger)">R$ 0,00</div>
+                </div>
+            </div>
+
+            <div class="card" style="max-width: 500px; margin: 0 auto;">
+                <canvas id="chart"></canvas>
+            </div>
+        </section>
+
+        <section id="pay" class="page" style="display:none">
+            <header>
+                <h1>Contas a Pagar</h1>
+            </header>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ITEM</th>
+                            <th>TOTAL</th>
+                            <th>PENDENTE</th>
+                            <th>AÇÃO</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-pagar"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="hist" class="page" style="display:none">
+            <header>
+                <h1>Histórico de Efetivados</h1>
+            </header>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>MÊS</th>
+                            <th>ITEM</th>
+                            <th>VALOR PAGO</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lista-historico"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
